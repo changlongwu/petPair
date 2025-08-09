@@ -1,13 +1,15 @@
 import { useState } from 'react'
 
 import './App.css'
-import Welcome from './components/welcomePage/Welcome.jsx'
+
+import Header from './components/header/Header.jsx'
 const App=()=> {
 
 
   return (
     <>
-      <Welcome/>
+      <Header/>
+      
     </>
   )
 }
