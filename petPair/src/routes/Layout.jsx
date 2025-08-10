@@ -12,4 +12,4 @@ const Layout = ()=>{
     )
 }
 
-export default Header
+export default Layout

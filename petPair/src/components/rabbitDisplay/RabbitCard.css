@@ -1,0 +1,29 @@
+.rabbit-card-container{
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1.2px solid #ccc;  /* 颜色可以改成你喜欢的 */
+
+    /* 阴影效果 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between; /* 左右分散 */
+    align-items: center; /* 垂直居中 */
+  }
+
+.rabbit-name{
+    font-size: 1.5rem;
+}
+
+.rabbit-distance{
+    color: lightgray;
+}
+.card-body p{
+    color: lightgray;
+}
