@@ -11,10 +11,12 @@ import { Link } from "react-router-dom";
 const RabbitDetail = ()=>{
     const {id} = useParams();
     const [rabbit, setRabbit] = useState(null)
+    const[rabbitBio, setRabbitBio] = useState('')
 
     const generateBiography = async (rabbit) => {
         const cardPage = rabbit.card_page;
         const detailsPage = rabbit.details_page;
+
         try {
     
           const response = await fetch("https://noggin.rea.gent/yodelling-cicada-2365", {
@@ -44,12 +46,15 @@ const RabbitDetail = ()=>{
     useEffect(()=>{
         const foundRabbit = RabbitData.rabbits.find((r)=>r.details_page.id===id);
         if (foundRabbit){
-            setRabbit(foundRabbit.details_page)
-            console.log(rabbit)
-            console(generateBiography(foundRabbit))
+            setRabbit(foundRabbit.details_page);
+            console.log(rabbit);
+            (async () => {
+                const bio = await generateBiography(foundRabbit);
+                setRabbitBio(bio);
+              })();
         }
         
-        // console.log(id)
+        console.log(rabbitBio)
     },[])
     return (
         <div className="detail-page-container">
@@ -150,6 +155,10 @@ const RabbitDetail = ()=>{
                     {trait}
                     </span>
                 ))}
+                </div>
+
+                <div className="rabbit-bio">
+                    <p>{rabbitBio}</p>
                 </div>
         </div>
         </div>

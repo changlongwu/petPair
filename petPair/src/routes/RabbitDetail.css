@@ -92,3 +92,7 @@
     border: 1px solid #ddd;
     white-space: nowrap; /* 防止断行 */
 }
+
+.rabbit-bio{
+    margin-top: 10px;
+}
