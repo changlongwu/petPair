@@ -1,6 +1,69 @@
+.display-page-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 .display-body{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     
 }
+/* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;  /* 垂直居中 */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;  /* 圆角生效 */
+    /* width: 80vw; 你可以自定义宽度 */
+    margin: 2vh 0;
+    height: 5.5vh;
+  }
+  
+  .search-bar input {
+    flex: 1; /* 占满剩余空间 */
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    outline: none; /* 去掉蓝色边框 */
+
+  }
+  
+  .search-bar button {
+    background-color:white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;  /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+  }
+  
+  .search-bar button img {
+    width: 20px;  /* 控制图标大小 */
+    height: 20px;
+  }
+  
+  .sort-part{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1vh;
+  }
+  .sort-icon{
+    width: 6vw;
+  }
+  .sort-part > div {
+    display: flex;
+    align-items: center; /* 让 img 和 span 垂直居中 */
+    gap: 6px; /* img 和文字间隔 */
+    font-size: 1.5rem;
+  }
+  
