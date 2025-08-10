@@ -5,15 +5,21 @@ import './RabbitDisplayPage.css'
 import SearchIcon from '../assets/images/search.svg'
 import SortIcon from '../assets/images/filter-left.svg'
 import { Link } from "react-router-dom";
+import Filter from "../components/filter/Filter.jsx";
 
 const RabbitDisplayPage = ()=>{
     const [rabbits, setRabbits] = useState([]);
     const [filteredNumbers, setFilteredNumbers]= useState(0);
+    const [showFilter, setShowFilter] = useState(false);
+    
     useEffect(()=>{
         setRabbits(rabbitData.rabbits)
         setFilteredNumbers(rabbitData.rabbits.length)
     },[])
     console.log(rabbits)
+
+
+
     return (
         <div className="display-page-container">  
             {/* seacrh bar */}

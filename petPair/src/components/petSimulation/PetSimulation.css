@@ -1,0 +1,38 @@
+.simulation-page{
+    background-color: #ABABAB;
+    width: 100vw;
+    height: 100vh;
+}
+.simulation-container{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rabbit-learning-progress{
+    width: 80vw;
+    /* height: 50px; */
+    background-color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    padding: 5px 20px;
+}
+.simulation-rabbit-name{
+    /* font-weight: bold; */
+    font-size: 22px;
+}
+.heart-icons{
+    display: flex;
+    justify-content:space-between;
+}
+.heart-icons img{
+    width: 30px;
+    height: auto;
+}
+.heart-description p{
+    font-size: 8px;
+}
