@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './RabbitDisplayPage.css'
 import SearchIcon from '../assets/images/search.svg'
 import SortIcon from '../assets/images/filter-left.svg'
-
+import { Link } from "react-router-dom";
 
 const RabbitDisplayPage = ()=>{
     const [rabbits, setRabbits] = useState([]);
@@ -25,10 +25,10 @@ const RabbitDisplayPage = ()=>{
             </div>
 
             <div className="sort-part">
-                <div>
+                <button className="sort-button">
                     <img src={SortIcon} alt="" className="sort-icon"/>
                     <span>Sort by</span>
-                </div>
+                </button>
 
                 <p>{filteredNumbers} results</p>
             </div>
@@ -37,9 +37,13 @@ const RabbitDisplayPage = ()=>{
 
 
             <div className="display-body">
-                {
+                {   
                     rabbits.map(rabbit=>(
-                        <RabbitCard key={rabbit.id} rabbit={rabbit}/>
+                        
+                        <Link to={`/display/detail/${rabbit.card_page.id}` } key={rabbit.id} className="rabbit-link">
+                            <RabbitCard key={rabbit.card_page.id} rabbit={rabbit}/>
+                        </Link>
+                        
                     ))
                 }
                 

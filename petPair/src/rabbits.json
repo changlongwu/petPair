@@ -14,6 +14,7 @@
       },
       "details_page": {
         "id": "rabbit1",
+        "name": "Ball",
         "image": "/rabbits/rabbit1.png",
         "location": "Springfield Animal Shelter",
         "distance": 15.2,
@@ -42,6 +43,7 @@
       },
       "details_page": {
         "id": "rabbit2",
+        "name": "Floppy",
         "image": "/rabbits/rabbit2.png",
         "location": "Greenfield Animal Shelter",
         "distance": 10.5,
@@ -70,6 +72,7 @@
       },
       "details_page": {
         "id": "rabbit3",
+        "name": "Thumper",
         "image": "/rabbits/rabbit3.png",
         "location": "Downtown Animal Shelter",
         "distance": 8.7,
@@ -98,6 +101,7 @@
       },
       "details_page": {
         "id": "rabbit4",
+        "name": "Snowball",
         "image": "/rabbits/rabbit4.png",
         "location": "Eastside Animal Shelter",
         "distance": 12.3,

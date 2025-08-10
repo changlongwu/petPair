@@ -12,8 +12,8 @@ const RabbitCard = ({rabbit}) =>{
         <div className="rabbit-card-container">
            <img src={cardData?.image} alt="rabbit photo" className="card-image"/>
             <div className="card-header">
-                <div className="rabbit-name"><p>{cardData?.name}</p></div>
-                <div className="rabbit-distance"><p>{cardData?.distance}mi</p></div>
+                <div className="card-rabbit-name"><p>{cardData?.name}</p></div>
+                {/* <div className="rabbit-distance"><p>{cardData?.distance}mi</p></div> */}
             </div>
             <div className="card-body">
                 <div><p>{cardData?.sex}</p>  </div>

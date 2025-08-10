@@ -10,6 +10,7 @@ import Layout from './routes/Layout.jsx'
 import RabbitDisplayPage from './routes/RabbitDisplayPage.jsx'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
+import RabbitDetail from './routes/RabbitDetail.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/' element={<WelcomePage/>}/>
       <Route path='/display' element={<Layout/>}>
         <Route index element={<RabbitDisplayPage/>}/>
+        <Route path='detail/:id' element={<RabbitDetail/>}/>
       </Route>
     </Routes>
   </BrowserRouter>

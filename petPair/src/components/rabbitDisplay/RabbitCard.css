@@ -1,7 +1,7 @@
 .rabbit-card-container{
     display: flex;
     flex-direction: column;
-    width: 35vw;
+    width: 30vw;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -17,9 +17,14 @@
     align-items: center; /* 垂直居中 */
   }
 
-.rabbit-name{
+  .card-rabbit-name {
     font-size: 1.5rem;
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 隐藏超出部分 */
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+    max-width: 70%; /* 避免占满整行，留给右边元素空间 */
 }
+
 
 .rabbit-distance{
     color: lightgray;

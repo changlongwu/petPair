@@ -1,0 +1,94 @@
+.detail-page-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 7vw;
+
+}
+
+.go-back-arrow{
+    width: 20px;
+    color: lightgray;
+}
+
+.detail-image{
+    display: block; 
+    margin: 0 auto; /* 左右自动 margin 实现水平居中 */
+    width: 50vw;
+}
+
+.detail-header{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items:baseline;
+}
+
+.detail-icons{
+    display: flex;
+
+    gap: 20px;
+    align-items:flex-start;
+}
+
+.icon-items {
+    display: flex;
+    flex-direction: column; /* 图标在上，文字在下 */
+    align-items: center; /* 水平居中 */
+    font-size: 14px;
+    text-align: center;
+}
+
+.icon-items img {
+    width: 25px;
+    height: auto;
+    margin-bottom: 1px; /* 图标和文字间隔 */
+}
+
+.icon-items p {
+    color:lightgray;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1; /* 避免文字垂直居中有额外间隙 */
+    font-size: 10px;
+}
+
+.rabbit-name p {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+
+
+.detail-row{
+    display: flex;
+    gap: 20px;
+}
+
+.detail-key{
+    color: lightgray;
+    width: 100px; /* 固定宽度，按最长的 key 设 */
+    flex-shrink: 0; /* 防止压缩 */
+}
+
+
+.traits-container {
+    display: flex;
+    flex-wrap: wrap; /* 自动换行，适应不同数量 */
+    gap: 8px; /* 标签之间的间距 */
+    margin-top: 10px;
+    
+    
+}
+
+.trait-pill {
+    padding: 6px 12px;
+    background-color: white;
+    border-radius: 8px; /* 圆角 pill 效果 */
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+    white-space: nowrap; /* 防止断行 */
+}
