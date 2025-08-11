@@ -1,69 +1,155 @@
 import PetSimulation from "../components/petSimulation/PetSimulation.jsx";
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DndContext, closestCorners } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import { useParams } from 'react-router-dom';
+import RabbitData from '../rabbits.json';
 
-const PetSimulationPage = () =>{
-    const [items, setItems] = useState([
-        { id: 'grass-1', type: 'grass' },
-        { id: 'banana-1', type: 'banana' },
-        { id: 'carrot-1', type: 'carrot' },
-        { id: 'grass2-1', type: 'grass2' },
-        { id: 'pellets-1', type: 'pellets' },
-        { id: 'toy-1', type: 'toy' },
-      ]);
+const PetSimulationRoute = () => {
+  const { id } = useParams();
+  const [items, setItems] = useState([
+    { id: 'grass-1', type: 'grass' },
+    { id: 'banana-1', type: 'banana' },
+    { id: 'carrot-1', type: 'carrot' },
+    { id: 'grass2-1', type: 'grass2' },
+    { id: 'pellets-1', type: 'pellets' },
+    { id: 'toy-1', type: 'toy' },
+    { id: 'toilet-1', type: 'toilet' },
+  ]);
 
-      const [fedItems] = useState([]);
-      const [feedingItem, setFeedingItem] = useState(null);
-      const [isEating, setIsEating] = useState(false);
-      const [showHappy, setShowHappy] = useState(false);
+  const [fedItems] = useState([]);
+  const [feedingItem, setFeedingItem] = useState(null);
+  const [isEating, setIsEating] = useState(false);
+  const [showHappy, setShowHappy] = useState(false);
+  const [isUsingToilet, setIsUsingToilet] = useState(false);
+  
+  // 添加hunger和happiness状态
+  const [hunger, setHunger] = useState(50);
+  const [happiness, setHappiness] = useState(50);
+  const [toilet, setToilet] = useState(50);
 
+  // 从rabbits.json读取初始值
+  useEffect(() => {
+    const foundRabbit = RabbitData.rabbits.find((r) => r.details_page.id === id);
+    if (foundRabbit) {
+      setHunger(foundRabbit.simulation_page.hunger);
+      setHappiness(foundRabbit.simulation_page.hapiness);
+      setToilet(foundRabbit.simulation_page.toilet);
+    }
+  }, [id]);
 
-      const handleDragEnd = (event) => {
-        const { active, over } = event;
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+    
+    if (!over) return;
+
+    // 如果拖拽到兔子图片
+    if (over.id === 'rabbit-image') {
+      const item = items.find(item => item.id === active.id);
+      if (item) {
         
-        if (!over) return;
-    
-        // 如果拖拽到兔子图片
-        if (over.id === 'rabbit-image') {
-          const item = items.find(item => item.id === active.id);
-          if (item) {
-            // 从物品区域移除
-            setItems(prev => prev.filter(item => item.id !== active.id));
-            
-            // 开始喂食动画
-            setFeedingItem(item);
-            setIsEating(true);
-            setShowHappy(true);
-            
-            // 6秒后恢复
-            setTimeout(() => {
-              setFeedingItem(null);
-              setIsEating(false);
-              setShowHappy(false);
-              // 物品回到原位置
-              setItems(prev => [...prev, item]);
-            }, 2500);
+        if (item.type === 'toilet') {
+          
+          // 立即从物品区域移除
+          setItems(currentItems => {
+            const filteredItems = currentItems.filter(i => i.id !== item.id);
+            return filteredItems;
+          });
+          
+          // 设置使用厕所状态
+          setIsUsingToilet(true);
+          setFeedingItem(null);
+          setIsEating(false);
+          setShowHappy(false);
+          
+          
+          // 更新toilet值
+          const foundRabbit = RabbitData.rabbits.find((r) => r.details_page.id === id);
+          if (foundRabbit && foundRabbit.simulation_page.toiletPreference) {
+            const toiletEffects = foundRabbit.simulation_page.toiletPreference.toilet;
+            if (toiletEffects) {
+              setToilet(prev => {
+                const newToilet = prev + toiletEffects.toilet;
+                return Math.max(0, Math.min(100, newToilet));
+              });
+            }
           }
+          
+          // 2秒后恢复
+          setTimeout(() => {
+            // 重置状态
+            setIsUsingToilet(false);
+            
+            // 将toilet添加回items
+            setItems(currentItems => {
+              const newItems = [...currentItems, item];
+              return newItems;
+            });
+          }, 2000);
+          
+        } else {
+          // 喂食的逻辑
+          
+          // 从物品区域移除
+          setItems(prev => prev.filter(item => item.id !== active.id));
+          
+          setFeedingItem(item);
+          setIsEating(true);
+          setShowHappy(true);
+          
+          // 更新hunger和happiness值
+          const foundRabbit = RabbitData.rabbits.find((r) => r.details_page.id === id);
+          if (foundRabbit) {
+            const foodEffects = foundRabbit.simulation_page.foodPreference[item.type];
+            if (foodEffects) {
+              // 更新hunger（注意：hunger值应该是减少的，所以用加号）
+              setHunger(prev => {
+                const newHunger = prev + foodEffects.hunger;
+                return Math.max(0, Math.min(100, newHunger));
+              });
+              
+              // 更新happiness
+              setHappiness(prev => {
+                const newHappiness = prev + foodEffects.hapiness;
+                return Math.max(0, Math.min(100, newHappiness));
+              });
+            }
+          }
+          
+          // 2.5秒后恢复
+          setTimeout(() => {
+            setFeedingItem(null);
+            setIsEating(false);
+            setShowHappy(false);
+            
+            // 物品回到原位置
+            setItems(prevItems => [...prevItems, item]);
+          }, 2500);
         }
-      };
-    
-    return (
-        <div>
-        {/* <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-          <SortableContext items={items.map(item => item.id)} strategy={verticalListSortingStrategy}>
-            <PetSimulation 
-              items={items} 
-              fedItems={fedItems}
-              feedingItem={feedingItem}
-              isEating={isEating}
-              showHappy={showHappy}
-            />
-          </SortableContext>
-        </DndContext> */}
-        <PetSimulation />
-      </div>
-    )
-}
+      }
+    }
+  };
 
-export default PetSimulationPage
+  return (
+    <div>
+      
+      <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+        <SortableContext items={items.map(item => item.id)} strategy={verticalListSortingStrategy}>
+          <PetSimulation 
+            items={items} 
+            fedItems={fedItems}
+            feedingItem={feedingItem}
+            isEating={isEating}
+            showHappy={showHappy}
+            isUsingToilet={isUsingToilet}
+            hapinessNumber={happiness}
+            hungerNumber={hunger}
+            toiletNumber={toilet}
+          />
+        </SortableContext>
+      </DndContext>
+    </div>
+  );
+};
+
+export default PetSimulationRoute; 
