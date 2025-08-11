@@ -38,6 +38,10 @@ const PetSimulation = ()=>{
                         
                     </div>
                 </div>
+
+                <div >
+
+                </div>
                 <Clock/>
             
             </div>

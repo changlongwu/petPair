@@ -2,21 +2,23 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0,0,0,0.3);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10002;
 }
 
 .filter-container {
   background: white;
   border-radius: 10px;
   padding: 20px;
-  width: 300px;
+  width: 320px;
   max-height: 90%;
   overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
 }
 
 .filter-container h3 {
@@ -24,10 +26,20 @@
   margin-top: 15px;
 }
 
+/* 多个 checkbox 一行显示 */
+.filter-group {
+  display: flex;
+  flex-wrap: wrap; /* 自动换行 */
+  gap: 10px; /* 间距 */
+  margin-top: 5px;
+}
+
 .filter-container label {
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: 14px;
   color: #555;
+  gap: 5px;
 }
 
 .time-slider {
