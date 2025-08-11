@@ -1,5 +1,5 @@
 .simulation-page{
-    background-color: #ABABAB;
+    background-color: #969696;
     width: 100vw;
     height: 100vh;
 }
@@ -35,4 +35,84 @@
 }
 .heart-description p{
     font-size: 8px;
+}
+
+.instruction-contianer{
+    display: flex;
+    justify-content: space-between;
+
+    width: 85vw;
+    margin-top: 10px ;
+}
+
+.instruction{
+    font-size: 10px;
+    color: white;
+}
+
+
+.draggable-area{
+    width: 100vw;
+    height: 70vh;
+    background-color: #969696;
+    position: relative;
+}
+
+.draggable-area img{
+    position: absolute;
+
+}
+
+
+
+.rabbit-img{
+    width: 40vw;
+    height: auto;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.toilet-img{
+    width: 20vh;
+    left: 12%;
+}
+
+.pelltes-img{
+    width: 25vw;
+    left: 10%;
+    top:55%;
+}
+
+.toy-img{
+    width: 20vw;
+    right: 12%;
+    top: 55%;
+}
+
+.banana-img{
+    width: 10vw;
+    transform: rotate(-15deg); 
+    right: 34%;
+    top: 4%;
+}
+
+.carrot-img{
+    width: 10vw;
+    transform: rotate(30deg);
+    right: 25%;
+    top: 4%; 
+}
+
+.grass-img{
+    width: 10vw;
+    transform: rotate(50deg);
+    right: 12%;
+    top: 2%; 
+}
+
+.grass2-img{
+    width: 10vw;
+    transform: rotate(50deg);
+    right: 13%;
+    top: 11%; 
 }

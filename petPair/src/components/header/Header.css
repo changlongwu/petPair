@@ -8,6 +8,11 @@
     top: 0;
     z-index: 1000;
     margin: 0 3vw;
+
+}
+.logo-link{
+    color: inherit;          /* 继承父元素字体颜色 */
+    text-decoration: none; 
 }
 
 .logo{

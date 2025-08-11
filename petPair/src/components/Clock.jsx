@@ -27,7 +27,7 @@ function Clock() {
   const minutes = String(time.getMinutes()).padStart(2, '0');
 
   return (
-    <div style={{color:'white',  textAlign: 'right'}}>
+    <div style={{color:'white',  textAlign: 'right', fontSize: '13px'}}>
       <p>{dayOfWeek}, {monthName} {date}</p>
       <p>{hours}:{minutes} {ampm}</p> 
     </div>
