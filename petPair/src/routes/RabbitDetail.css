@@ -13,7 +13,9 @@
 .detail-image{
     display: block; 
     margin: 0 auto; /* 左右自动 margin 实现水平居中 */
-    width: 50vw;
+    width: 300px;   /* 固定宽度，避免大屏幕过大 */
+    height: 300px;  /* 固定高度 */
+    object-fit: cover; /* 保持比例，裁剪超出部分 */
 }
 
 .detail-header{

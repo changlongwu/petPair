@@ -153,7 +153,7 @@ const RabbitDisplayPage = ()=>{
             <div className="sort-part">
                 <button className="sort-button" onClick={()=>{setShowFilter(true)}}>
                     <img src={SortIcon} alt="" className="sort-icon"/>
-                    <span>Sort by</span>
+                    <span>Filter by</span>
                 </button>
 
                 {hasActiveFilters() && (

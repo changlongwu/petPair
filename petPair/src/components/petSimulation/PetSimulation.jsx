@@ -140,6 +140,8 @@ const DraggableItem = ({ id, type }) => {
           setRabbit(foundRabbit.details_page);
         }
       }, [id]);
+
+      
       return (
         <div className="pet-simulation-page">
           <div className="pet-simulation">
@@ -188,34 +190,31 @@ const DraggableItem = ({ id, type }) => {
           {/* 底部进度条 */}
           <div className="learning-progress-bar-area">
             <div className="progress-row">
-              <span className="progress-label">Hapiness</span>
+              <span className="progress-label"><p>Hapiness</p></span>
               <div className="progress-track">
                 <div
                   className="progress-fill happiness"
                   style={{ width: `${hapinessPercent}%` }}
                 />
               </div>
-              <span className="progress-value">{hapinessPercent}%</span>
             </div>
             <div className="progress-row">
-              <span className="progress-label">Hunger</span>
+              <span className="progress-label"><p>Hunger</p></span>
               <div className="progress-track">
                 <div
                   className="progress-fill hunger"
                   style={{ width: `${hungerPercent}%` }}
                 />
               </div>
-              <span className="progress-value">{hungerPercent}%</span>
             </div>
             <div className="progress-row">
-              <span className="progress-label">Toilet</span>
+              <span className="progress-label"><p>Toilet</p></span>
               <div className="progress-track">
                 <div
                   className="progress-fill toilet"
                   style={{ width: `${toiletPercent}%` }}
                 />
               </div>
-              <span className="progress-value">{toiletPercent}%</span>
             </div>
           </div>
         </div>

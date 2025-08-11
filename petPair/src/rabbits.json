@@ -30,6 +30,7 @@
       "simulation_page": {
         "hunger": 40,
         "hapiness": 50,
+        "toilet": 30,
         "foodPreference": {
           "grass": { "hunger": -10, "hapiness": -15 },
           "banana": { "hunger": -30, "hapiness": 20 },
@@ -37,6 +38,9 @@
           "grass2": { "hunger": -20, "hapiness": 30 },
           "pellets": { "hunger": -20, "hapiness": -10 },
           "toy": { "hunger": 0, "hapiness": 50 }
+        },
+        "toiletPreference": {
+          "toilet": { "toilet": -50, "hapiness": 10 }
         }
       }
     },
@@ -70,6 +74,7 @@
       "simulation_page": {
         "hunger": 55,
         "hapiness": 65,
+        "toilet": 45,
         "foodPreference": {
           "grass": { "hunger": -15, "hapiness": -10 },
           "banana": { "hunger": -25, "hapiness": -15 },
@@ -77,6 +82,9 @@
           "grass2": { "hunger": -10, "hapiness": 35 },
           "pellets": { "hunger": -25, "hapiness": 20 },
           "toy": { "hunger": 0, "hapiness": 45 }
+        },
+        "toiletPreference": {
+          "toilet": { "toilet": -50, "hapiness": 10 }
         }
       }
     },
@@ -110,6 +118,7 @@
       "simulation_page": {
         "hunger": 45,
         "hapiness": 70,
+        "toilet": 60,
         "foodPreference": {
           "grass": { "hunger": -12, "hapiness": 10 },
           "banana": { "hunger": -28, "hapiness": -20 },
@@ -117,6 +126,9 @@
           "grass2": { "hunger": -18, "hapiness": -15 },
           "pellets": { "hunger": -22, "hapiness": 18 },
           "toy": { "hunger": 0, "hapiness": 40 }
+        },
+        "toiletPreference": {
+          "toilet": { "toilet": -50, "hapiness": 10 }
         }
       }
     },
@@ -150,6 +162,7 @@
       "simulation_page": {
         "hunger": 50,
         "hapiness": 60,
+        "toilet": 25,
         "foodPreference": {
           "grass": { "hunger": -20, "hapiness": -25 },
           "banana": { "hunger": -35, "hapiness": 25 },
@@ -157,6 +170,9 @@
           "grass2": { "hunger": -22, "hapiness": 30 },
           "pellets": { "hunger": -25, "hapiness": -10 },
           "toy": { "hunger": 0, "hapiness": 50 }
+        },
+        "toiletPreference": {
+          "toilet": { "toilet": -50, "hapiness": 10 }
         }
       }
     }

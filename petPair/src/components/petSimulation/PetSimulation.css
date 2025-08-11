@@ -108,7 +108,7 @@
   /* learning progress */
   .rabbit-learning-progress{
     width: 60vw;
-    height: 20vh;      /* 设置固定高度 */
+    height: 10vh;      /* 设置固定高度 */
     background-color: none;
     display: flex;
     justify-content: space-between;
@@ -155,10 +155,12 @@
 
 /* progress bars */
 .learning-progress-bar-area {
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   padding: 12px 20px 20px;
   margin-bottom: 50px;
-  
+  box-sizing: border-box;  /* 确保padding不会导致溢出 */
+  overflow: hidden;        /* 防止内容溢出 */
 }
 
 .progress-row {
@@ -166,12 +168,15 @@
   align-items: center;
   gap: 10px;
   margin: 8px 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .progress-label {
   width: 80px;
   font-size: 14px;
   color: #333;
+  flex-shrink: 0;          /* 防止标签被压缩 */
 }
 
 .progress-track {
@@ -181,6 +186,7 @@
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid rgba(0,0,0,0.08);
+  min-width: 0;            /* 允许缩小 */
 }
 
 .progress-fill {
@@ -202,8 +208,5 @@
 }
 
 .progress-value {
-  width: 52px;
-  text-align: right;
-  font-size: 12px;
-  color: #333;
+  display: none;           /* 隐藏百分比数字 */
 }

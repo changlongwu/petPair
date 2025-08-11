@@ -147,7 +147,7 @@ const RabbitDetail = ()=>{
                         <p>LOCATION</p>
                     </div>
                     <div className="detail-value">
-                        <p>${rabbit?.location}</p>
+                        <p>{rabbit?.location}</p>
                     </div>
                 </div>
 

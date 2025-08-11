@@ -13,6 +13,7 @@ import './index.css'
 import RabbitDetail from './routes/RabbitDetail.jsx'
 import PetSimulationPage from './routes/PetSimulationPage.jsx'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
@@ -21,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route index element={<RabbitDisplayPage/>}/>
         <Route path='detail/:id' element={<RabbitDetail/>}/>
         <Route path='simulation/:id' element={<PetSimulationPage/>}/>
-        
+
       </Route>
     </Routes>
   </BrowserRouter>

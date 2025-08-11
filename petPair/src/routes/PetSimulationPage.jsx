@@ -1,4 +1,5 @@
 import PetSimulation from "../components/petSimulation/PetSimulation.jsx";
+import SimulationFinished from "../components/petSimulation/SimulationFinished.jsx";
 import { useState, useEffect } from 'react';
 import { DndContext, closestCorners } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
@@ -23,6 +24,10 @@ const PetSimulationRoute = () => {
   const [showHappy, setShowHappy] = useState(false);
   const [isUsingToilet, setIsUsingToilet] = useState(false);
   
+  // 添加弹窗状态和兔子信息
+  const [showFinishedModal, setShowFinishedModal] = useState(false);
+  const [currentRabbit, setCurrentRabbit] = useState(null);
+  
   // 添加hunger和happiness状态
   const [hunger, setHunger] = useState(50);
   const [happiness, setHappiness] = useState(50);
@@ -35,8 +40,29 @@ const PetSimulationRoute = () => {
       setHunger(foundRabbit.simulation_page.hunger);
       setHappiness(foundRabbit.simulation_page.hapiness);
       setToilet(foundRabbit.simulation_page.toilet);
+      setCurrentRabbit(foundRabbit.details_page);
     }
   }, [id]);
+
+  // 检测是否达到3个filled hearts
+  useEffect(() => {
+    const clampPercent = (value) => {
+      const n = Number.isFinite(value) ? value : 0;
+      if (n < 0) return 0;
+      if (n > 100) return 100;
+      return n;
+    };
+
+    const hapinessPercent = clampPercent(happiness);
+    const hungerPercent = clampPercent(hunger);
+    const toiletPercent = clampPercent(toilet);
+    
+    const earnedHearts = (hapinessPercent === 100 ? 1 : 0) + (hungerPercent === 0 ? 1 : 0) + (toiletPercent === 0 ? 1 : 0);
+    
+    if (earnedHearts === 3 && !showFinishedModal) {
+      setShowFinishedModal(true);
+    }
+  }, [happiness, hunger, toilet, showFinishedModal]);
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
@@ -63,15 +89,26 @@ const PetSimulationRoute = () => {
           setShowHappy(false);
           
           
-          // 更新toilet值
+          // 更新toilet值和happiness值
           const foundRabbit = RabbitData.rabbits.find((r) => r.details_page.id === id);
           if (foundRabbit && foundRabbit.simulation_page.toiletPreference) {
             const toiletEffects = foundRabbit.simulation_page.toiletPreference.toilet;
             if (toiletEffects) {
-              setToilet(prev => {
-                const newToilet = prev + toiletEffects.toilet;
-                return Math.max(0, Math.min(100, newToilet));
-              });
+              // 更新toilet值
+              if (toiletEffects.toilet) {
+                setToilet(prev => {
+                  const newToilet = prev + toiletEffects.toilet;
+                  return Math.max(0, Math.min(100, newToilet));
+                });
+              }
+              
+              // 更新happiness值
+              if (toiletEffects.hapiness) {
+                setHappiness(prev => {
+                  const newHappiness = prev + toiletEffects.hapiness;
+                  return Math.max(0, Math.min(100, newHappiness));
+                });
+              }
             }
           }
           
@@ -148,6 +185,12 @@ const PetSimulationRoute = () => {
           />
         </SortableContext>
       </DndContext>
+      
+      <SimulationFinished 
+        isVisible={showFinishedModal}
+        onClose={() => setShowFinishedModal(false)}
+        rabbitName={currentRabbit?.name || 'Your Rabbit'}
+      />
     </div>
   );
 };
