@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import rabbitImage from '../../assets/images/PetSimulationImage/rabbit.png';
 import { Link } from 'react-router-dom';
 import LeftArrow from '../LeftArrow.jsx';
-
+// 
 const SimulationInstruction = () => {
     // const {id,name} = useParams();
     const id = 'rabbit1';
