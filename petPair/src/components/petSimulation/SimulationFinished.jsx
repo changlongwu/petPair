@@ -2,7 +2,7 @@ import './SimulationFinished.css';
 import petPairLogo from '../../assets/images/header/petpairplaylogo.svg'
 import { Link } from 'react-router-dom';
 
-const SimulationFinished = ({ isVisible, onClose, rabbitName }) => {
+const SimulationFinished = ({ isVisible, onClose, rabbitName, rabbitId }) => {
   if (!isVisible) return null;
 
   return (
@@ -48,12 +48,12 @@ const SimulationFinished = ({ isVisible, onClose, rabbitName }) => {
         </div>
         
         <div className="finished-actions">
-          <button className="continue-btn" onClick={onClose}>
+          {/* <button className="continue-btn" onClick={onClose}>
             Continue Playing
-          </button>
-          <Link to='/display/simulation/:id'>
+          </button> */}
+          <Link to={'/display'} key={rabbitId}>
           <button className="restart-btn" >
-            Start Over
+            Next
           </button>
           </Link>
         </div>

@@ -204,6 +204,7 @@ const PetSimulationRoute = () => {
             isVisible={showFinishedModal}
             onClose={() => setShowFinishedModal(false)}
             rabbitName={currentRabbit?.name || 'Your Rabbit'}
+            rabbitId={id}
           />
         </>
       )}

@@ -16,7 +16,8 @@ import SimulationInstructionPage from './routes/SimulationInstructionPage.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <Routes>
+  {/* normal app route */}
+    {/* <Routes>
       <Route path='/' element={<WelcomePage/>}/>
       <Route path='/display' element={<Layout/>}>
         <Route index element={<RabbitDisplayPage/>}/>
@@ -24,6 +25,18 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='simulation/:id' element={<PetSimulationPage/>}/>
         <Route path='simulation-instruction/:id/:name' element={<SimulationInstructionPage/>}/>
       </Route>
+    </Routes> */}
+
+    {/* only pet simulation page */}
+    <Routes>
+      <Route path='/' element={<SimulationInstructionPage/>}/>
+      <Route path='/display' element={<Layout/>}>
+        <Route index element={<RabbitDisplayPage/>}/>
+        <Route path='detail/:id' element={<RabbitDetail/>}/>
+        <Route path='simulation/:id' element={<PetSimulationPage/>}/>
+        <Route path='simulation-instruction/:id/:name' element={<SimulationInstructionPage/>}/>
+      </Route>
+
     </Routes>
   </BrowserRouter>
 )
