@@ -5,6 +5,7 @@
     color: var(--ink);
     padding: clamp(12px, 2.8vw, 18px) 16px 12px;
     margin: 0 auto;
+    text-align: center;
   }
   
   /* Hero image */
@@ -80,4 +81,7 @@
       flex: none;
     }
   }
-  
+
+.shelter-container{
+  margin-top: 20px;
+}

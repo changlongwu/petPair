@@ -1,0 +1,9 @@
+.buttons-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saved-rabbits-containter{
+    margin-top: 30px;
+}
