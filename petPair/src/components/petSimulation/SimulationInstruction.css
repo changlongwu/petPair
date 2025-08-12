@@ -47,11 +47,13 @@
 .simulation-instruction-button{
     position: fixed;
     right: 15vw;
-    bottom: 15vh;
+    bottom: 8vh;
     width: 80px;
     height: 34px;
     border-radius: 10px;
     border: 1ch;
     font-size: 20px;
     cursor: pointer;
+    color: black;
+    background-color: white;
 }
