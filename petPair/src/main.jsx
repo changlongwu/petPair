@@ -16,6 +16,8 @@ import SimulationInstructionPage from './routes/SimulationInstructionPage.jsx'
 
 import Shelter from './components/shelter/Shelter.jsx'
 
+import SavedRabbitsPage from './routes/SavedRabbitsPage.jsx';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   {/* normal app route */}
@@ -27,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='simulation/:id' element={<PetSimulationPage/>}/>
         <Route path='simulation-instruction/:id/:name' element={<SimulationInstructionPage/>}/>
         <Route path='shelter' element={<Shelter/>}/>
+        <Route path='saved' element={<SavedRabbitsPage />} />
       </Route>
     </Routes>
 

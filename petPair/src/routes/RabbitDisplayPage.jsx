@@ -200,7 +200,7 @@ const RabbitDisplayPage = () => {
                     <button type="submit" className="btn btn-outline-primary">
                         <img src={HelpIcon} alt="Help icon"
                             style={{ width: '20px', height: '20px', marginRight: '6px' }} />
-                        Help me choose
+                        <p>Help me choose</p>
                     </button>
                 </form>
             )}
@@ -213,7 +213,7 @@ const RabbitDisplayPage = () => {
                         <span><p>Filter by</p></span>
                     </button>
 
-                    {/* <div className="search-bar">
+                    <div className="search-bar">
                         <input
                             type="text"
                             placeholder="Search"
@@ -224,7 +224,7 @@ const RabbitDisplayPage = () => {
                         <button onClick={handleSearchButtonClick}>
                             <img src={SearchIcon} alt="" />
                         </button>
-                    </div> */}
+                    </div>
 
                     <p className="results-text">{filteredNumbers} results</p>
 
@@ -237,13 +237,20 @@ const RabbitDisplayPage = () => {
             )}
 
             {/* ⬇️ Clear Bio Cache button moved here, under Top Controls */}
-            {!viewingSaved && (
-                <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px" }}>
-                    <button onClick={clearBioCache} className="btn btn-warning">
-                        <p>Clear Bio Cache</p>
-                    </button>
-                </div>
-            )}
+            
+            <div>
+
+                {!viewingSaved && (
+                    <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px" }}>
+                        <button onClick={clearBioCache} className="btn btn-warning">
+                            <p>Clear Bio Cache</p>
+                        </button>
+                    </div>
+                )}
+
+                <div className="saved-rabbit-button"></div>
+            
+            </div>
             
             
             {savedRabbits.length > 0 && (
