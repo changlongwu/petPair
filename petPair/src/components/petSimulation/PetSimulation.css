@@ -9,17 +9,19 @@
 }
 
 .items-area{
+    position: absolute; /* 使用绝对定位 */
+    top: 70px; /* 从页面顶部的固定位置开始 */
+    left: 15px; /* 从页面左侧的固定位置开始 */
     width: 20vw;
     height: 75vh;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 20px;
-    margin-top: 10px;
-    overflow-y: auto; /* 添加垂直滚动 */
-    overflow-x: hidden; /* 隐藏水平滚动 */
+    flex-direction: row; /* 改为行方向 */
+    flex-wrap: wrap; /* 允许换行，实现两列布局 */
+    align-content: flex-start; /* 内容从顶部开始对齐 */
+    justify-content: space-between; /* 两列之间有间距 */
     gap: 8px; /* 物品之间的间距 */
-    padding-right: 5px; /* 为滚动条留出空间 */
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .item-image{
@@ -30,8 +32,9 @@
     border-radius: 10px;
 }
 .item{
-    width: fit-content;
-
+    width: calc(50% - 4px); /* 每个物品占一半宽度，减去gap的一半 */
+    display: flex;
+    justify-content: center; /* 物品图片居中 */
 }
 
 .rabbit-container{
@@ -144,6 +147,7 @@
     position: relative;
     width: 60vw;       /* 这里设置宽度 */
     height: 70vh;      /* 这里设置高度 */
+    margin-left: 30vw; /* 为左侧物品栏留出空间 */
     /* overflow: hidden;  防止内容溢出 */
 }
 
@@ -216,21 +220,4 @@
   display: none;           /* 隐藏百分比数字 */
 }
 
-/* 物品栏滚动条样式 */
-.items-area::-webkit-scrollbar {
-  width: 1px;
-}
-
-.items-area::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-}
-
-.items-area::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 3px;
-}
-
-.items-area::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.7);
-}
+/* 不再需要滚动条样式，因为使用两列布局 */
