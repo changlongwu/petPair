@@ -36,7 +36,7 @@ const SavedRabbitsPage = () => {
 
     return (
         <div className="display-page-container">
-
+            
 
             {/* Clear all button */}
             {savedRabbits.length > 0 && (

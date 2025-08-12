@@ -13,7 +13,9 @@ const SimulationInstruction = () => {
   return (
     <div className='instrruction-page'>
         <div className='simulation-instruction-container'>
-                <LeftArrow/>
+                
+                    <LeftArrow/>
+                
                 <div className='simulation-instruction-header'>
                     <p className='header-text-1'>Learn how to take care of</p>
                     

@@ -213,7 +213,7 @@ const RabbitDisplayPage = () => {
                         <span><p>Filter by</p></span>
                     </button>
 
-                    <div className="search-bar">
+                    {/* <div className="search-bar">
                         <input
                             type="text"
                             placeholder="Search"
@@ -224,7 +224,53 @@ const RabbitDisplayPage = () => {
                         <button onClick={handleSearchButtonClick}>
                             <img src={SearchIcon} alt="" />
                         </button>
+                    </div> */}
+
+                <div className="saved-rabbit-button-container">
+                    
+                    {savedRabbits.length > 0 && (
+                    <Link to={'/display/saved'} key={'gotosavedpage'}>
+                    <div className="saved-buttons" style={{ display: "flex", flexDirection: "column", gap: "8px", maxWidth: "250px", marginTop: "12px" }}>
+                        {!viewingSaved && (
+                            <button
+                                className="saved-rabbit-button"
+                                onClick={() => {
+                                    setRabbits(savedRabbits);
+                                    setViewingSaved(true);
+                                    setFilteredNumbers(savedRabbits.length);
+                                }}
+                            >
+                                <p>Saved Rabbits</p>
+                            </button>
+                        )}
+
+                        {viewingSaved && (
+                            <>
+                                <button
+                                    className="btn btn-outline-primary back-to-display-btn"
+                                    onClick={() => {
+                                        setRabbits(originalRabbits);
+                                        setViewingSaved(false);
+                                        setFilteredNumbers(originalRabbits.length);
+                                    }}
+                                    style={{ display: "flex", alignItems: "center", gap: "6px" }}
+                                >
+                                    <img src={LeftArrowIcon} alt="Back" style={{ width: "18px" }} />
+                                    Back to All Rabbits
+                                </button>
+
+                                <button
+                                    className="btn btn-danger clear-saved-rabbits-btn"
+                                    onClick={clearAllSavedRabbits}
+                                >
+                                    Clear Saved Rabbits
+                                </button>
+                            </>
+                        )}
                     </div>
+                    </Link>
+                )}
+                </div>
 
                     <p className="results-text">{filteredNumbers} results</p>
 
@@ -238,61 +284,25 @@ const RabbitDisplayPage = () => {
 
             {/* ⬇️ Clear Bio Cache button moved here, under Top Controls */}
             
-            <div>
+            <div className="saved-rabbit-btn-and-cache-container">
+
+
+
+
+                
 
                 {!viewingSaved && (
-                    <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px" }}>
-                        <button onClick={clearBioCache} className="btn btn-warning">
+                    <div className="cache-btn-container">
+                        <button onClick={clearBioCache} className="cache-btn btn btn-warning">
                             <p>Clear Bio Cache</p>
                         </button>
                     </div>
                 )}
-
-                <div className="saved-rabbit-button"></div>
             
             </div>
             
             
-            {savedRabbits.length > 0 && (
-                <div className="saved-buttons" style={{ display: "flex", flexDirection: "column", gap: "8px", maxWidth: "250px", marginTop: "12px" }}>
-                    {!viewingSaved && (
-                        <button
-                            className="btn btn-primary saved-rabbits-btn"
-                            onClick={() => {
-                                setRabbits(savedRabbits);
-                                setViewingSaved(true);
-                                setFilteredNumbers(savedRabbits.length);
-                            }}
-                        >
-                            <p>Saved Rabbits</p>
-                        </button>
-                    )}
-
-                    {viewingSaved && (
-                        <>
-                            <button
-                                className="btn btn-outline-primary back-to-display-btn"
-                                onClick={() => {
-                                    setRabbits(originalRabbits);
-                                    setViewingSaved(false);
-                                    setFilteredNumbers(originalRabbits.length);
-                                }}
-                                style={{ display: "flex", alignItems: "center", gap: "6px" }}
-                            >
-                                <img src={LeftArrowIcon} alt="Back" style={{ width: "18px" }} />
-                                Back to All Rabbits
-                            </button>
-
-                            <button
-                                className="btn btn-danger clear-saved-rabbits-btn"
-                                onClick={clearAllSavedRabbits}
-                            >
-                                Clear Saved Rabbits
-                            </button>
-                        </>
-                    )}
-                </div>
-            )}
+           
 
             <div className="display-body">
                 {rabbits.length > 0 ? (
