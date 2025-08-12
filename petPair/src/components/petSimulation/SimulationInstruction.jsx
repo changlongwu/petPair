@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import LeftArrow from '../LeftArrow.jsx';
 // 
 // 
+// 
 const SimulationInstruction = () => {
     const {id,name} = useParams();
     // const id = 'rabbit1';
