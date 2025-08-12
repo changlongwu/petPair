@@ -4,10 +4,11 @@ import rabbitImage from '../../assets/images/PetSimulationImage/rabbit.png';
 import { Link } from 'react-router-dom';
 import LeftArrow from '../LeftArrow.jsx';
 // 
+// 
 const SimulationInstruction = () => {
-    // const {id,name} = useParams();
-    const id = 'rabbit1';
-    const name = 'Ball';
+    const {id,name} = useParams();
+    // const id = 'rabbit1';
+    // const name = 'Ball';
   return (
     <div className='instrruction-page'>
         <div className='simulation-instruction-container'>
