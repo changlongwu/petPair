@@ -11,7 +11,7 @@ const Shelter = () => {
           <h1 className="org-title">House Rabbit Society</h1>
 
           <figure className="org-hero">
-            <img src={ShelterImage} alt="Exterior view of the House Rabbit Society building" />
+            <img src={ShelterImage} alt="Exterior view of the House Rabbit Society building"  className='shelterImage'/>
           </figure>
 
           {/* Contact Info */}

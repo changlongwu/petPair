@@ -72,7 +72,7 @@ const SavedRabbitsPage = () => {
                     onClick={clearAllSaved}
                     >
 
-                    Clear All Saved
+                    <p>Clear All Saved</p>
                 </button>
                 </Link>
 

@@ -1,4 +1,5 @@
 .buttons-container{
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,4 +7,9 @@
 
 .saved-rabbits-containter{
     margin-top: 30px;
+}
+
+.clear-filters-button{
+    background-color: white;
+    border-radius: 6px;
 }
