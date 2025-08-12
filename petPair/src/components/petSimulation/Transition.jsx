@@ -17,9 +17,9 @@ const Transition = ({ onComplete }) => {
           }
           return 100;
         }
-        return old + 4;
+        return old + 7;
       });
-    }, 400);
+    }, 200);
     return () => clearInterval(interval);
   }, [onComplete]);
 
