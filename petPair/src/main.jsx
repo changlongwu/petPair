@@ -17,7 +17,7 @@ import SimulationInstructionPage from './routes/SimulationInstructionPage.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
-      <Route path='/' element={<App/>}/>
+      <Route path='/' element={<WelcomePage/>}/>
       <Route path='/display' element={<Layout/>}>
         <Route index element={<RabbitDisplayPage/>}/>
         <Route path='detail/:id' element={<RabbitDetail/>}/>

@@ -2,6 +2,7 @@
     position: relative;
     padding: 0 10vw;  /* 改用padding代替margin */
     box-sizing: border-box; /* 确保padding算入宽度 */
+    background: linear-gradient(to bottom, #87CEEB, #98FB98);
 }
 .simulation-instruction-container {
   display: flex;
