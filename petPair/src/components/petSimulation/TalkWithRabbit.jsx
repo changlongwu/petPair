@@ -6,11 +6,11 @@ const TalkWithRabbit = ({rabbitId ,hunger,toilet,hapiness,feeditem }) => {
     const [foodPreference, setFoodPreference] = useState(null)
     const [response, setResponse] = useState(""); // 用来存 API 返回
     const [loading, setLoading] = useState(true);
-
+    let feedItem = JSON.stringify(feeditem);
     useEffect(()=>{
         const rabbit = rabbitData.rabbits.find(r=>r.card_page.id === rabbitId);
         if (rabbit){
-            setFoodPreference(rabbit.simulation_page.foodPreference);
+            setFoodPreference(JSON.stringify(rabbit.simulation_page.foodPreference));
         }
     },[rabbitId])
 
@@ -30,20 +30,25 @@ const TalkWithRabbit = ({rabbitId ,hunger,toilet,hapiness,feeditem }) => {
                   hunger: hunger || "",
                   hapiness: hapiness || "",
                   toilet: toilet || "",
-                  feeditem: feeditem || "",
+                  feeditem: feedItem || "",
                 }),
               }
             );
     
             const text = await res.text();
             setResponse(text);
+
+            setTimeout(() => {
+                setResponse("");
+              }, 10000); // 5秒后清空
+
           } catch (err) {
             setResponse("Error: " + err.message);
           } finally {
             setLoading(false);
           }
         };    callAPI();
-    }, [foodPreference, hunger, toilet, hapiness, feeditem]);
+    }, [feedItem]);
     
     return (
         

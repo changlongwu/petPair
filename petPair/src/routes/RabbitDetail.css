@@ -10,13 +10,8 @@
     color: lightgray;
 }
 
-.detail-image{
-    display: block; 
-    margin: 0 auto; /* 左右自动 margin 实现水平居中 */
-    width: 300px;   /* 固定宽度，避免大屏幕过大 */
-    height: 300px;  /* 固定高度 */
-    object-fit: cover; /* 保持比例，裁剪超出部分 */
-}
+
+
 
 .detail-header{
     margin-top: 20px;
@@ -60,10 +55,6 @@
     margin: 0;
 }
 
-
-
-
-
 .detail-row{
     display: flex;
     gap: 20px;
@@ -97,4 +88,55 @@
 
 .rabbit-bio{
     margin-top: 10px;
+}
+
+
+.custom-blurb-box {
+    background-color: #fffbea;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    font-style: italic;
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
+}
+
+
+.detail-image {
+    max-width: 400px;    
+    width: 100%;          
+    height: auto;         
+    max-height: 300px;    
+    object-fit: contain; 
+    border-radius: 8px;  
+    margin: 0 auto 20px;  
+    display: block;      
+}
+
+.contact-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.contact-button:hover {
+    background-color: #0056b3;
+}
+
+.icon-items p {
+  transition: color 0.2s ease;
+}
+
+.icon-items.saved p {
+  color: #007bff;
 }

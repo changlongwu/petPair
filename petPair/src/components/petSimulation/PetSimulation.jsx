@@ -168,13 +168,16 @@ const DraggableItem = ({ id, type }) => {
                 </div>
               </div>
 
-              <TalkWithRabbit
-                rabbitId={id}
-                hunger={hungerNumber}
-                toilet={toiletNumber}
-                hapiness={hapinessNumber}
-                feeditem={feedingItem}
-              />
+              <div className="rabbit-talk-area">
+                <TalkWithRabbit
+                  rabbitId={id}
+                  hunger={hungerNumber}
+                  toilet={toiletNumber}
+                  hapiness={hapinessNumber}
+                  feeditem={feedingItem}
+                />
+              </div>
+
       
               {/* 兔子展示区 */}
               <RabbitArea

@@ -162,6 +162,13 @@
     overflow: hidden;  /* 防止内容溢出 */
 }
 
+.rabbit-talk-area {
+  height: 10%;           /* 占父容器高度的 10% */
+  width: 100%;           /* 宽度占满 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* progress bars */
 .learning-progress-bar-area {
   width: 100%;
