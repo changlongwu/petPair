@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import HeartIcon from '../../assets/images/heart.svg';
 import FilledHeartIcon from '../../assets/images/heart-fill.png';
 // import Clock from "../Clock.jsx";
+import TalkWithRabbit from "./TalkWithRabbit.jsx";
 
 import grassImage from '../../assets/images/PetSimulationImage/grass.png';
 import bananaImage from '../../assets/images/PetSimulationImage/banana.png';
@@ -166,6 +167,14 @@ const DraggableItem = ({ id, type }) => {
                   </div>
                 </div>
               </div>
+
+              <TalkWithRabbit
+                rabbitId={id}
+                hunger={hungerNumber}
+                toilet={toiletNumber}
+                hapiness={hapinessNumber}
+                feeditem={feedingItem}
+              />
       
               {/* 兔子展示区 */}
               <RabbitArea

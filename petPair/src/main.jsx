@@ -14,6 +14,7 @@ import RabbitDetail from './routes/RabbitDetail.jsx'
 import PetSimulationPage from './routes/PetSimulationPage.jsx'
 import SimulationInstructionPage from './routes/SimulationInstructionPage.jsx'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   {/* normal app route */}
@@ -29,7 +30,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
     {/* only pet simulation page */}
     <Routes>
+
       <Route path='/' element={<SimulationInstructionPage/>}/>
+      
       <Route path='/display' element={<Layout/>}>
         <Route index element={<RabbitDisplayPage/>}/>
         <Route path='detail/:id' element={<RabbitDetail/>}/>
