@@ -13,9 +13,13 @@
     height: 75vh;
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
+    align-items: flex-start;
     margin-left: 20px;
     margin-top: 10px;
+    overflow-y: auto; /* 添加垂直滚动 */
+    overflow-x: hidden; /* 隐藏水平滚动 */
+    gap: 8px; /* 物品之间的间距 */
+    padding-right: 5px; /* 为滚动条留出空间 */
 }
 
 .item-image{
@@ -210,4 +214,23 @@
 
 .progress-value {
   display: none;           /* 隐藏百分比数字 */
+}
+
+/* 物品栏滚动条样式 */
+.items-area::-webkit-scrollbar {
+  width: 1px;
+}
+
+.items-area::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.items-area::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+}
+
+.items-area::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
 }
