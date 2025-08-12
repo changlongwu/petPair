@@ -213,9 +213,12 @@ const RabbitDetail = () => {
 
                 <div className="rabbit-bio"><p>{rabbitBio}</p></div>
 
-                <div className="contact-button-container">
-                    <button className="contact-button">Adopt Me</button>
-                </div>
+                <Link to={'/display/shelter'} key={'gotoshetler'}>
+                    <div className="contact-button-container">
+                        <button className="contact-button">Adopt Me</button>
+                    </div>
+                </Link>
+
             </div>
         </div>
     );

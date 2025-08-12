@@ -210,7 +210,7 @@ const RabbitDisplayPage = () => {
                 <div className="top-controls">
                     <button className="sort-button" onClick={() => { setShowFilter(true) }}>
                         <img src={SortIcon} alt="" className="sort-icon" />
-                        <span>Filter by</span>
+                        <span><p>Filter by</p></span>
                     </button>
 
                     {/* <div className="search-bar">
@@ -240,7 +240,7 @@ const RabbitDisplayPage = () => {
             {!viewingSaved && (
                 <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px" }}>
                     <button onClick={clearBioCache} className="btn btn-warning">
-                        Clear Bio Cache
+                        <p>Clear Bio Cache</p>
                     </button>
                 </div>
             )}
@@ -257,7 +257,7 @@ const RabbitDisplayPage = () => {
                                 setFilteredNumbers(savedRabbits.length);
                             }}
                         >
-                            Saved Rabbits
+                            <p>Saved Rabbits</p>
                         </button>
                     )}
 

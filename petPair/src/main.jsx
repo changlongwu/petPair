@@ -14,6 +14,7 @@ import RabbitDetail from './routes/RabbitDetail.jsx'
 import PetSimulationPage from './routes/PetSimulationPage.jsx'
 import SimulationInstructionPage from './routes/SimulationInstructionPage.jsx'
 
+import Shelter from './components/shelter/Shelter.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='detail/:id' element={<RabbitDetail/>}/>
         <Route path='simulation/:id' element={<PetSimulationPage/>}/>
         <Route path='simulation-instruction/:id/:name' element={<SimulationInstructionPage/>}/>
+        <Route path='shelter' element={<Shelter/>}/>
       </Route>
     </Routes>
 

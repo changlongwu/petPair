@@ -1,15 +1,16 @@
-.app-header{
+.app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     /* padding: 1rem; */
     background-color: white;
-    position: sticky;
+    /* position: sticky;
     top: 0;
-    z-index: 1000;
-    margin: 0 3vw;
-
+    z-index: 1000; */
+    margin: 0 3vw; /* 这里给左右边距 */
+    /* 如果想让 header 内部左右边距更均匀，可以改成 padding */
 }
+
 .logo-link{
     color: inherit;          /* 继承父元素字体颜色 */
     text-decoration: none; 
