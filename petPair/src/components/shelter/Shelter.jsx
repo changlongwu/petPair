@@ -17,15 +17,15 @@ const Shelter = () => {
           {/* Contact Info */}
           <div className="org-contact">
             <div className="row">
-              <span className="label">Email</span>
+              <span className="label"><p>Email</p></span>
               <a className="value" href="mailto:foster@houserabbit.org">foster@houserabbit.org</a>
             </div>
             <div className="row">
-              <span className="label">Phone</span>
+              <span className="label"><p>Phone</p></span>
               <a className="value" href="tel:+15109707575">(510) 970-7575</a>
             </div>
             <div className="row">
-              <span className="label">Location</span>
+              <span className="label"><p>Location</p> </span>
               <address className="value">
                 148 Broadway, Richmond,<br />
                 CA 94804

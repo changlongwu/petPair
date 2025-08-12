@@ -272,7 +272,7 @@ const RabbitDisplayPage = () => {
                 )}
                 </div>
 
-                    <p className="results-text">{filteredNumbers} results</p>
+                    <p className="results-text">{filteredNumbers} result(s)</p>
 
                     {hasActiveFilters() && (
                         <button className="clear-filters-button" onClick={clearAllFilters}>
