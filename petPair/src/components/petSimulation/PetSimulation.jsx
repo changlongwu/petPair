@@ -190,7 +190,7 @@ const DraggableItem = ({ id, type }) => {
           {/* 底部进度条 */}
           <div className="learning-progress-bar-area">
             <div className="progress-row">
-              <span className="progress-label"><p>Hapiness</p></span>
+              <span className="progress-label"><p>Happiness</p></span>
               <div className="progress-track">
                 <div
                   className="progress-fill happiness"

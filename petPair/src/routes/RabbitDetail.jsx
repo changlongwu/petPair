@@ -67,7 +67,7 @@ const RabbitDetail = ()=>{
                 <div className="rabbit-name"><p>{rabbit?.name}</p></div>
                 <div className="detail-icons">
 
-                    <Link to={`/display/simulation/${rabbit?.id}` } key={`simulation-${rabbit?.id}`}>
+                    <Link to={`/display/simulation-instruction/${rabbit?.id}/${rabbit?.name}` } key={`simulation-${rabbit?.id}`}>
                     <div className="icon-items">
                         <img src={DogLeashIcon} alt="" />
                         <p>Learn</p>

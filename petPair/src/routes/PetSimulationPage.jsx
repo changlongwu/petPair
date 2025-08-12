@@ -1,5 +1,6 @@
 import PetSimulation from "../components/petSimulation/PetSimulation.jsx";
 import SimulationFinished from "../components/petSimulation/SimulationFinished.jsx";
+import Transition from "../components/petSimulation/Transition.jsx";
 import { useState, useEffect } from 'react';
 import { DndContext, closestCorners } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
@@ -23,6 +24,9 @@ const PetSimulationRoute = () => {
   const [isEating, setIsEating] = useState(false);
   const [showHappy, setShowHappy] = useState(false);
   const [isUsingToilet, setIsUsingToilet] = useState(false);
+  
+  // 添加loading状态
+  const [isLoading, setIsLoading] = useState(true);
   
   // 添加弹窗状态和兔子信息
   const [showFinishedModal, setShowFinishedModal] = useState(false);
@@ -63,6 +67,11 @@ const PetSimulationRoute = () => {
       setShowFinishedModal(true);
     }
   }, [happiness, hunger, toilet, showFinishedModal]);
+
+  // 处理Transition完成
+  const handleTransitionComplete = () => {
+    setIsLoading(false);
+  };
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
@@ -169,28 +178,35 @@ const PetSimulationRoute = () => {
 
   return (
     <div>
-      
-      <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-        <SortableContext items={items.map(item => item.id)} strategy={verticalListSortingStrategy}>
-          <PetSimulation 
-            items={items} 
-            fedItems={fedItems}
-            feedingItem={feedingItem}
-            isEating={isEating}
-            showHappy={showHappy}
-            isUsingToilet={isUsingToilet}
-            hapinessNumber={happiness}
-            hungerNumber={hunger}
-            toiletNumber={toilet}
+      {isLoading ? (
+        // 显示Transition加载页面
+        <Transition onComplete={handleTransitionComplete} />
+      ) : (
+        // 显示PetSimulation游戏页面
+        <>
+          <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+            <SortableContext items={items.map(item => item.id)} strategy={verticalListSortingStrategy}>
+              <PetSimulation 
+                items={items} 
+                fedItems={fedItems}
+                feedingItem={feedingItem}
+                isEating={isEating}
+                showHappy={showHappy}
+                isUsingToilet={isUsingToilet}
+                hapinessNumber={happiness}
+                hungerNumber={hunger}
+                toiletNumber={toilet}
+              />
+            </SortableContext>
+          </DndContext>
+          
+          <SimulationFinished 
+            isVisible={showFinishedModal}
+            onClose={() => setShowFinishedModal(false)}
+            rabbitName={currentRabbit?.name || 'Your Rabbit'}
           />
-        </SortableContext>
-      </DndContext>
-      
-      <SimulationFinished 
-        isVisible={showFinishedModal}
-        onClose={() => setShowFinishedModal(false)}
-        rabbitName={currentRabbit?.name || 'Your Rabbit'}
-      />
+        </>
+      )}
     </div>
   );
 };

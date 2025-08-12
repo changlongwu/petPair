@@ -12,17 +12,17 @@ import RabbitDisplayPage from './routes/RabbitDisplayPage.jsx'
 import './index.css'
 import RabbitDetail from './routes/RabbitDetail.jsx'
 import PetSimulationPage from './routes/PetSimulationPage.jsx'
-
+import SimulationInstructionPage from './routes/SimulationInstructionPage.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
-      <Route path='/' element={<WelcomePage/>}/>
+      <Route path='/' element={<App/>}/>
       <Route path='/display' element={<Layout/>}>
         <Route index element={<RabbitDisplayPage/>}/>
         <Route path='detail/:id' element={<RabbitDetail/>}/>
         <Route path='simulation/:id' element={<PetSimulationPage/>}/>
-
+        <Route path='simulation-instruction/:id/:name' element={<SimulationInstructionPage/>}/>
       </Route>
     </Routes>
   </BrowserRouter>
