@@ -32,6 +32,7 @@
 .rabbit-name-logo-contianer{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 .simulation-instruction-header img{
     width: 200px;
