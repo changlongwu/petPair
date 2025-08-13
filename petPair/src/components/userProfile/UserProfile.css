@@ -6,6 +6,9 @@
     border: 1.2px solid #ccc; 
     margin: 30px 80px;
     padding: 10px;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 9px;
 }
 
 .user-image {
@@ -15,5 +18,5 @@
     object-fit: contain;
     display: block;
     margin: 10px auto;
-    border-radius: 50%;
+    border-radius: 10px;
 }
