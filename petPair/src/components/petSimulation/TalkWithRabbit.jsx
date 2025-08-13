@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
 import rabbitData from '../../rabbits.json';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const TalkWithRabbit = ({rabbitId ,hunger,toilet,hapiness,feeditem }) => {
     const [foodPreference, setFoodPreference] = useState(null)
@@ -15,6 +15,13 @@ const TalkWithRabbit = ({rabbitId ,hunger,toilet,hapiness,feeditem }) => {
     },[rabbitId])
 
     useEffect(() => {
+        // 只有当 feeditem 不为 null 时才调用 API
+        if (feeditem === null) {
+            setLoading(false);
+            setResponse("");
+            return;
+        }
+
         const callAPI = async () => {
           try {
             const res = await fetch(
@@ -40,15 +47,17 @@ const TalkWithRabbit = ({rabbitId ,hunger,toilet,hapiness,feeditem }) => {
 
             setTimeout(() => {
                 setResponse("");
-              }, 10000); // 5秒后清空
+              }, 5000); // 5秒后清空
 
           } catch (err) {
             setResponse("Error: " + err.message);
           } finally {
             setLoading(false);
           }
-        };    callAPI();
-    }, [feedItem]);
+        };
+        
+        callAPI();
+    }, [feedItem, foodPreference, hunger, hapiness, toilet]);
     
     return (
         
@@ -58,5 +67,13 @@ const TalkWithRabbit = ({rabbitId ,hunger,toilet,hapiness,feeditem }) => {
         </div>
     )
 }
+
+TalkWithRabbit.propTypes = {
+    rabbitId: PropTypes.string.isRequired,
+    hunger: PropTypes.number,
+    toilet: PropTypes.number,
+    hapiness: PropTypes.number,
+    feeditem: PropTypes.object
+};
 
 export default TalkWithRabbit;

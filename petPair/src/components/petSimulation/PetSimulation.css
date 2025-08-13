@@ -35,6 +35,49 @@
     width: calc(50% - 4px); /* 每个物品占一半宽度，减去gap的一半 */
     display: flex;
     justify-content: center; /* 物品图片居中 */
+    position: relative; /* 为tooltip定位做准备 */
+}
+
+/* Tooltip 样式 */
+.item::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none  ;
+    color: black;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+    pointer-events: none; /* 防止tooltip干扰拖拽 */
+    margin-bottom: 5px;
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.item:hover::before,
+.item:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
 
 .rabbit-container{

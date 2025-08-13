@@ -27,13 +27,13 @@ import { CSS } from '@dnd-kit/utilities';
 
 const getItemImage = (type) => {
     switch (type) {
-      case 'grass':
+      case 'veggies':
         return grassImage;
       case 'banana':
         return bananaImage;
       case 'carrot':
         return carrotImage;
-      case 'grass2':
+      case 'hay':
         return grass2Image;
       case 'pellets':
         return pelletsImage;
@@ -62,6 +62,7 @@ const DraggableItem = ({ id, type }) => {
         style={style} 
         {...attributes} 
         {...listeners}
+        data-tooltip={type}
       >
         <img src={getItemImage(type)} alt={type} className="item-image" />
       </div>

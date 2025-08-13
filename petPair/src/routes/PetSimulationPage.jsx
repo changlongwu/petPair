@@ -10,10 +10,10 @@ import RabbitData from '../rabbits.json';
 const PetSimulationRoute = () => {
   const { id } = useParams();
   const [items, setItems] = useState([
-    { id: 'grass-1', type: 'grass' },
+    { id: 'veggies-1', type: 'veggies' },
     { id: 'banana-1', type: 'banana' },
     { id: 'carrot-1', type: 'carrot' },
-    { id: 'grass2-1', type: 'grass2' },
+    { id: 'hay-1', type: 'hay' },
     { id: 'pellets-1', type: 'pellets' },
     { id: 'toy-1', type: 'toy' },
     { id: 'toilet-1', type: 'toilet' },
