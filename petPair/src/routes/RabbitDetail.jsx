@@ -128,12 +128,15 @@ const RabbitDetail = () => {
             {customBlurb && (
                 <div className="custom-blurb-box">{customBlurb}</div>
             )}
+            <div className="detail-image-container">
+                <img
+                    src={rabbit?.details_page.image}
+                    alt={rabbit?.card_page.name}
+                    className="detail-image"
+                />
+            </div>
 
-            <img
-                src={rabbit?.details_page.image}
-                alt={rabbit?.card_page.name}
-                className="detail-image"
-            />
+
 
             <div className="detail-header">
                 <div className="rabbit-name"><p>{rabbit?.card_page.name}</p></div>

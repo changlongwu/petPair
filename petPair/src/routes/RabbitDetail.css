@@ -102,6 +102,11 @@
     box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
 }
 
+.detail-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .detail-image {
     max-width: 400px;    
