@@ -19,6 +19,7 @@ import Shelter from './components/shelter/Shelter.jsx'
 import SavedRabbitsPage from './routes/SavedRabbitsPage.jsx';
 import Article from './components/article/Article.jsx'
 import UserProfile from './components/userProfile/UserProfile.jsx'
+import Notification from './components/notification/Notification.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -35,6 +36,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='saved' element={<SavedRabbitsPage />} />
         <Route path='article' element={<Article />} />
         <Route path='user-profile' element={<UserProfile />} />
+        <Route path='notification' element={<Notification />} />
       </Route>
     </Routes>
 
