@@ -17,12 +17,15 @@ import SimulationInstructionPage from './routes/SimulationInstructionPage.jsx'
 import Shelter from './components/shelter/Shelter.jsx'
 
 import SavedRabbitsPage from './routes/SavedRabbitsPage.jsx';
+import Article from './components/article/Article.jsx'
+import UserProfile from './components/userProfile/UserProfile.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   {/* normal app route */}
     <Routes>
       <Route path='/' element={<WelcomePage/>}/>
+      
       <Route path='/display' element={<Layout/>}>
         <Route index element={<RabbitDisplayPage/>}/>
         <Route path='detail/:id' element={<RabbitDetail/>}/>
@@ -30,6 +33,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='simulation-instruction/:id/:name' element={<SimulationInstructionPage/>}/>
         <Route path='shelter' element={<Shelter/>}/>
         <Route path='saved' element={<SavedRabbitsPage />} />
+        <Route path='article' element={<Article />} />
+        <Route path='user-profile' element={<UserProfile />} />
       </Route>
     </Routes>
 

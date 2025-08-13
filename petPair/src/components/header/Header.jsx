@@ -18,17 +18,22 @@ const Header = ()=>{
             
 
             <div className="header-icons">
+                <Link to={'/display/article'}>
                 <button className="icon-btn">
                     <img src={educationCenter} alt="" />
                 </button>
+                </Link>
+
 
                 <button className="icon-btn">
                     <img src={notification} alt="" />
                 </button>
 
+                <Link to={'/display/user-profile'}>
                 <button className="icon-btn">
                     <img src={profile} alt="" />
                 </button>
+                </Link>
 
             </div>
         </div>

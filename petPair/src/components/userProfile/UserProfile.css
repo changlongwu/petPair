@@ -1,0 +1,19 @@
+.user-profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1.2px solid #ccc; 
+    margin: 30px 80px;
+    padding: 10px;
+}
+
+.user-image {
+    width: 100%;
+    max-width: 200px;  /* or whatever suits your layout */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%;
+}

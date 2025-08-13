@@ -15,6 +15,7 @@
 }
 
 .card-image {
+    
     width: 100%;
     max-width: 200px;  /* or whatever suits your layout */
     height: auto;
