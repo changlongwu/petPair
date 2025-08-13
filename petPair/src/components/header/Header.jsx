@@ -24,10 +24,11 @@ const Header = ()=>{
                 </button>
                 </Link>
 
-
-                <button className="icon-btn">
-                    <img src={notification} alt="" />
-                </button>
+                <Link to={'/display/notification'}>
+                    <button className="icon-btn">
+                        <img src={notification} alt="" />
+                    </button>
+                </Link>
 
                 <Link to={'/display/user-profile'}>
                 <button className="icon-btn">
