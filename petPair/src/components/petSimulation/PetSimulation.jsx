@@ -20,6 +20,10 @@ import rabbitEatingImage from '../../assets/images/PetSimulationImage/rabbit-eat
 import happyRabbitImage from '../../assets/images/PetSimulationImage/happy.png';
 import toiletImage from '../../assets/images/PetSimulationImage/toilet.png';
 import toiletRabbitImage from '../../assets/images/PetSimulationImage/rabbit-using-toilet.png';
+import happyRabbit1 from '../../assets/images/PetSimulationImage/happy-rabbit.png';
+import happyRabbit2 from '../../assets/images/PetSimulationImage/happy-rabbit-2.png';
+import angryRabbit1 from '../../assets/images/PetSimulationImage/angry-rabbit.png';
+import angryRabbit2 from '../../assets/images/PetSimulationImage/angry-rabbit-2.png';
 
 import { useDroppable } from '@dnd-kit/core';
 import { useSortable } from '@dnd-kit/sortable';
@@ -69,21 +73,60 @@ const DraggableItem = ({ id, type }) => {
     );
   };
 
-  const Rabbit = ({ isEating, showHappy, feedingItem, isUsingToilet }) => {
+  const Rabbit = ({ isEating, showHappy, feedingItem, isUsingToilet, rabbitId }) => {
     const { setNodeRef, isOver } = useDroppable({
       id: 'rabbit-image',
     });
+
+    // 获取兔子的食物偏好来判断 happiness 值
+    const getRabbitImage = () => {
+      if (isUsingToilet) return toiletRabbitImage;
+      if (!isEating || !feedingItem) return rabbitImage;
+
+      // 找到当前兔子的食物偏好
+      const foundRabbit = RabbitData.rabbits.find((r) => r.details_page.id === rabbitId);
+      if (!foundRabbit) return rabbitEatingImage;
+
+      const foodEffects = foundRabbit.simulation_page.foodPreference[feedingItem.type];
+      if (!foodEffects) return rabbitEatingImage;
+
+      const happinessValue = foodEffects.hapiness;
+
+      if (happinessValue < 0) {
+        // 负面情绪：随机选择愤怒图片
+        const angryImages = [angryRabbit1, angryRabbit2];
+        return angryImages[Math.floor(Math.random() * angryImages.length)];
+      } else {
+        // 正面情绪：随机选择开心图片
+        const happyImages = [rabbitEatingImage, happyRabbit1, happyRabbit2];
+        return happyImages[Math.floor(Math.random() * happyImages.length)];
+      }
+    };
+
+    // 判断是否显示额外的开心图片
+    const shouldShowHappyOverlay = () => {
+      if (!showHappy || isUsingToilet || !feedingItem) return false;
+      
+      const foundRabbit = RabbitData.rabbits.find((r) => r.details_page.id === rabbitId);
+      if (!foundRabbit) return false;
+
+      const foodEffects = foundRabbit.simulation_page.foodPreference[feedingItem.type];
+      if (!foodEffects) return false;
+
+      // 只有当 happiness 值为正数时才显示额外的开心图片
+      return foodEffects.hapiness > 0;
+    };
   
     return (
       <div className="rabbit-container">
         <img 
           ref={setNodeRef}
-          src={isUsingToilet ? toiletRabbitImage : (isEating ? rabbitEatingImage : rabbitImage)} 
+          src={getRabbitImage()} 
           alt="rabbit" 
           className={`rabbit-image ${isOver ? 'over' : ''}`}
         />
         
-        {showHappy && !isUsingToilet && <img src={happyRabbitImage} alt="happy-rabbit" className="happy-rabbit-image" />}
+        {shouldShowHappyOverlay() && <img src={happyRabbitImage} alt="happy-rabbit" className="happy-rabbit-image" />}
         
         {feedingItem && !isUsingToilet && (
           <div className="feeding-item">
@@ -95,10 +138,10 @@ const DraggableItem = ({ id, type }) => {
   };
   
   // 兔子区域
-  const RabbitArea = ({ children, isEating, showHappy, feedingItem, isUsingToilet }) => {
+  const RabbitArea = ({ children, isEating, showHappy, feedingItem, isUsingToilet, rabbitId }) => {
     return (
       <div className="rabbit-area">
-        <Rabbit isEating={isEating} showHappy={showHappy} feedingItem={feedingItem} isUsingToilet={isUsingToilet} />
+        <Rabbit isEating={isEating} showHappy={showHappy} feedingItem={feedingItem} isUsingToilet={isUsingToilet} rabbitId={rabbitId} />
         {children}
       </div>
     );
@@ -186,6 +229,7 @@ const DraggableItem = ({ id, type }) => {
                 showHappy={showHappy}
                 feedingItem={feedingItem}
                 isUsingToilet={isUsingToilet}
+                rabbitId={id}
               >
                 {fedItems.map((item) => (
                   <div key={item.id} className="fed-item">

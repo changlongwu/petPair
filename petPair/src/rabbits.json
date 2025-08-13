@@ -30,10 +30,11 @@
       "simulation_page": {
         "hunger": 40,
         "hapiness": 50,
-        "toilet": 30,
+        "toilet": 70,
+        "description": "Hi! I'm Ball and I love playing with toys and enjoy hay! I like carrots but don't enjoy veggies, bananas, or pellets.",
         "foodPreference": {
           "veggies": { "hunger": -10, "hapiness": -15 },
-          "banana": { "hunger": -30, "hapiness": 20 },
+          "banana": { "hunger": -30, "hapiness": -20 },
           "carrot": { "hunger": -35, "hapiness": 10 },
           "hay": { "hunger": -20, "hapiness": 30 },
           "pellets": { "hunger": -20, "hapiness": -10 },
@@ -74,7 +75,8 @@
       "simulation_page": {
         "hunger": 55,
         "hapiness": 65,
-        "toilet": 45,
+        "toilet": 60,
+        "description": "Hello! I'm Floppy and I love playing with toys and have a special fondness for hay! I also enjoy carrots and pellets, but don't like veggies or bananas.",
         "foodPreference": {
           "veggies": { "hunger": -15, "hapiness": -10 },
           "banana": { "hunger": -25, "hapiness": -15 },
@@ -119,6 +121,7 @@
         "hunger": 45,
         "hapiness": 70,
         "toilet": 60,
+        "description": "Hey there! I'm Thumper and I love playing with toys and enjoy pellets, carrots, and veggies! However, I don't like bananas or hay.",
         "foodPreference": {
           "veggies": { "hunger": -12, "hapiness": 10 },
           "banana": { "hunger": -28, "hapiness": -20 },
@@ -163,6 +166,7 @@
         "hunger": 50,
         "hapiness": 60,
         "toilet": 25,
+        "description": "Hi! I'm Snowball and I absolutely love playing with toys and enjoy hay and bananas! However, I don't like veggies, carrots, or pellets.",
         "foodPreference": {
           "veggies": { "hunger": -20, "hapiness": -25 },
           "banana": { "hunger": -35, "hapiness": 25 },
